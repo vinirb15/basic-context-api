@@ -1,23 +1,14 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { AuthContext } from './Providers/auth';
 
 function App() {
+  const { user, setUser } = React.useContext(AuthContext)
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>teste</h1>
+      <h1>{user.name}</h1>
+      <input onChange={ e => setUser(prevState => ({...prevState, name: e.target.value}))}></input>
     </div>
   );
 }
